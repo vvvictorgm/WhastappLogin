@@ -15,21 +15,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.barbaburguer.whatsappcurso.Config.ConfiguracaoFirebase;
 import com.barbaburguer.whatsappcurso.Helper.Permissao;
 import com.barbaburguer.whatsappcurso.Helper.Preferencias;
 import com.barbaburguer.whatsappcurso.R;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.HashMap;
 import java.util.Random;
 
 public class LoginActivity extends AppCompatActivity {
+    private DatabaseReference referencia;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        referencia = ConfiguracaoFirebase.getFirebase();
 
     }
     public void abrirCadastro( View view){
