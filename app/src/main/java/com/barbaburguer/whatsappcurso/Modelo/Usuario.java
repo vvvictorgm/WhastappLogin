@@ -1,9 +1,15 @@
 package com.barbaburguer.whatsappcurso.Modelo;
-
+import com.barbaburguer.whatsappcurso.Config.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
 public class Usuario {
     private String id,nome,email,senha;
 
     public Usuario() {
+
+    }
+    public void salvar(){
+        DatabaseReference reference = ConfiguracaoFirebase.getFirebase();
+        reference.child("usuários").child(getId()).setValue(this);
 
     }
 
